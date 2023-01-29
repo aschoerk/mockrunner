@@ -3,11 +3,11 @@ package com.mockrunner.mock.jms;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.jms.InvalidSelectorException;
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.MessageConsumer;
-import javax.jms.MessageListener;
+import jakarta.jms.InvalidSelectorException;
+import jakarta.jms.JMSException;
+import jakarta.jms.Message;
+import jakarta.jms.MessageConsumer;
+import jakarta.jms.MessageListener;
 
 import org.activemq.filter.mockrunner.Filter;
 import org.activemq.selector.mockrunner.SelectorParser;

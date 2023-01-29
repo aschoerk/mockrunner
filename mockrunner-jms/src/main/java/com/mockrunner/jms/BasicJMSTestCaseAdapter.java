@@ -2,7 +2,7 @@ package com.mockrunner.jms;
 
 import java.util.List;
 
-import javax.jms.MessageListener;
+import jakarta.jms.MessageListener;
 
 import org.junit.After;
 import org.junit.Before;

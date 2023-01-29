@@ -9,25 +9,25 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import javax.jms.BytesMessage;
-import javax.jms.Destination;
-import javax.jms.InvalidDestinationException;
-import javax.jms.JMSException;
-import javax.jms.MapMessage;
-import javax.jms.Message;
-import javax.jms.MessageConsumer;
-import javax.jms.MessageListener;
-import javax.jms.MessageProducer;
-import javax.jms.ObjectMessage;
-import javax.jms.Queue;
-import javax.jms.QueueBrowser;
-import javax.jms.Session;
-import javax.jms.StreamMessage;
-import javax.jms.TemporaryQueue;
-import javax.jms.TemporaryTopic;
-import javax.jms.TextMessage;
-import javax.jms.Topic;
-import javax.jms.TopicSubscriber;
+import jakarta.jms.BytesMessage;
+import jakarta.jms.Destination;
+import jakarta.jms.InvalidDestinationException;
+import jakarta.jms.JMSException;
+import jakarta.jms.MapMessage;
+import jakarta.jms.Message;
+import jakarta.jms.MessageConsumer;
+import jakarta.jms.MessageListener;
+import jakarta.jms.MessageProducer;
+import jakarta.jms.ObjectMessage;
+import jakarta.jms.Queue;
+import jakarta.jms.QueueBrowser;
+import jakarta.jms.Session;
+import jakarta.jms.StreamMessage;
+import jakarta.jms.TemporaryQueue;
+import jakarta.jms.TemporaryTopic;
+import jakarta.jms.TextMessage;
+import jakarta.jms.Topic;
+import jakarta.jms.TopicSubscriber;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -494,7 +494,19 @@ public class MockSession implements Session, Serializable
             throw new InvalidDestinationException("destination must be an instance of MockQueue or MockTopic");
         }
     }
-    
+
+    @Override
+    public MessageConsumer createSharedConsumer(final Topic topic, final String s) throws JMSException {
+        // TODO: jakarta
+        return null;
+    }
+
+    @Override
+    public MessageConsumer createSharedConsumer(final Topic topic, final String s, final String s1) throws JMSException {
+        // TODO: jakarta
+        return null;
+    }
+
     public MessageProducer createProducer(Destination destination) throws JMSException
     {
         getConnection().throwJMSException();
@@ -551,7 +563,32 @@ public class MockSession implements Session, Serializable
         addSessionToTopic(topic);
         return topicTransManager.createDurableTopicSubscriber((MockTopic)topic, name, messageSelector, noLocal);
     }
-    
+
+    @Override
+    public MessageConsumer createDurableConsumer(final Topic topic, final String s) throws JMSException {
+        // TODO: jakarta
+
+        return null;
+    }
+
+    @Override
+    public MessageConsumer createDurableConsumer(final Topic topic, final String s, final String s1, final boolean b) throws JMSException {
+        // TODO: jakarta
+        return null;
+    }
+
+    @Override
+    public MessageConsumer createSharedDurableConsumer(final Topic topic, final String s) throws JMSException {
+        // TODO: jakarta
+        return null;
+    }
+
+    @Override
+    public MessageConsumer createSharedDurableConsumer(final Topic topic, final String s, final String s1) throws JMSException {
+        // TODO: jakarta
+        return null;
+    }
+
     protected MockConnection getConnection()
     {
         return connection;

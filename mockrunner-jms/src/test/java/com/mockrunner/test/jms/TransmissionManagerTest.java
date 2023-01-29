@@ -8,7 +8,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
-import javax.jms.Session;
+import jakarta.jms.Session;
 
 import org.junit.Before;
 import org.junit.Test;

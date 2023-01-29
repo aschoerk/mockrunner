@@ -7,12 +7,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 
-import javax.jms.DeliveryMode;
-import javax.jms.Destination;
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.MessageFormatException;
-import javax.jms.MessageNotWriteableException;
+import jakarta.jms.DeliveryMode;
+import jakarta.jms.Destination;
+import jakarta.jms.JMSException;
+import jakarta.jms.Message;
+import jakarta.jms.MessageFormatException;
+import jakarta.jms.MessageNotWriteableException;
 
 import com.mockrunner.base.NestedApplicationException;
 
@@ -175,6 +175,18 @@ public class MockMessage implements Message, Cloneable, Serializable
     public void setJMSExpiration(long expiration) throws JMSException
     {
         this.expiration = expiration;
+    }
+
+    @Override
+    public long getJMSDeliveryTime() throws JMSException {
+        // TODO: jakarta
+        return 0;
+    }
+
+    @Override
+    public void setJMSDeliveryTime(final long l) throws JMSException {
+        // TODO: jakarta
+
     }
 
     public int getJMSPriority() throws JMSException
@@ -409,7 +421,19 @@ public class MockMessage implements Message, Cloneable, Serializable
     {
         isInWriteMode = true;
     }
-    
+
+    @Override
+    public <T> T getBody(final Class<T> aClass) throws JMSException {
+        // TODO: jakarta
+        return null;
+    }
+
+    @Override
+    public boolean isBodyAssignableTo(final Class aClass) throws JMSException {
+        // TODO: jakarta
+        return false;
+    }
+
     public void setReadOnly(boolean isReadOnly)
     {
         isInWriteMode = !isReadOnly;

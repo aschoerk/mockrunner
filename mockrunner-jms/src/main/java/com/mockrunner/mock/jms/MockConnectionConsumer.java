@@ -1,8 +1,8 @@
 package com.mockrunner.mock.jms;
 
-import javax.jms.ConnectionConsumer;
-import javax.jms.JMSException;
-import javax.jms.ServerSessionPool;
+import jakarta.jms.ConnectionConsumer;
+import jakarta.jms.JMSException;
+import jakarta.jms.ServerSessionPool;
 
 /**
  * Mock implementation of JMS <code>ConnectionConsumer</code>.

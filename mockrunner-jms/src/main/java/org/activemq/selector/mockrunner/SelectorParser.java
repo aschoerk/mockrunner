@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.io.StringReader;
 import java.util.ArrayList;
 
-import javax.jms.InvalidSelectorException;
+import jakarta.jms.InvalidSelectorException;
 
 import org.activemq.filter.mockrunner.ArithmeticExpression;
 import org.activemq.filter.mockrunner.BooleanExpression;

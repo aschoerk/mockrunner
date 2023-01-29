@@ -1,9 +1,9 @@
 package com.mockrunner.mock.jms;
 
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.Topic;
-import javax.jms.TopicPublisher;
+import jakarta.jms.JMSException;
+import jakarta.jms.Message;
+import jakarta.jms.Topic;
+import jakarta.jms.TopicPublisher;
 
 /**
  * Mock implementation of JMS <code>TopicPublisher</code>.

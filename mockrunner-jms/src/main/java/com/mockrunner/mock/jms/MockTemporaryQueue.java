@@ -1,7 +1,7 @@
 package com.mockrunner.mock.jms;
 
-import javax.jms.JMSException;
-import javax.jms.TemporaryQueue;
+import jakarta.jms.JMSException;
+import jakarta.jms.TemporaryQueue;
 
 /**
  * Mock implementation of JMS <code>TemporaryQueue</code>.

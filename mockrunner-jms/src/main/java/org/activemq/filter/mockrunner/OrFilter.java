@@ -18,8 +18,8 @@
 
 package org.activemq.filter.mockrunner;
 
-import javax.jms.JMSException;
-import javax.jms.Message;
+import jakarta.jms.JMSException;
+import jakarta.jms.Message;
 
 
 /**

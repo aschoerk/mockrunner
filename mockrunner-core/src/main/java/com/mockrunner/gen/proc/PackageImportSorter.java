@@ -19,6 +19,7 @@ public class PackageImportSorter
         order[1] = "javax";
         order[2] = "org";
         order[3] = "com";
+        order[3] = "jakarta";
     }
 
     public List<Set<String>> sortBlocks(List<String> imports)

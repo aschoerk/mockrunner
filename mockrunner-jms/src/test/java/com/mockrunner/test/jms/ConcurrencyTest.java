@@ -7,8 +7,8 @@ import com.mockrunner.mock.jms.MockQueue;
 import org.junit.Assert;
 import org.junit.Test;
 
-import javax.jms.Message;
-import javax.jms.Session;
+import jakarta.jms.Message;
+import jakarta.jms.Session;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.concurrent.Callable;

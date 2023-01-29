@@ -3,12 +3,13 @@ package com.mockrunner.mock.jms;
 import com.mockrunner.jms.ConfigurationManager;
 import com.mockrunner.jms.DestinationManager;
 
-import javax.jms.Connection;
-import javax.jms.JMSException;
-import javax.jms.QueueConnection;
-import javax.jms.QueueConnectionFactory;
-import javax.jms.TopicConnection;
-import javax.jms.TopicConnectionFactory;
+import jakarta.jms.Connection;
+import jakarta.jms.JMSContext;
+import jakarta.jms.JMSException;
+import jakarta.jms.QueueConnection;
+import jakarta.jms.QueueConnectionFactory;
+import jakarta.jms.TopicConnection;
+import jakarta.jms.TopicConnectionFactory;
 import java.io.Serializable;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -55,7 +56,35 @@ public class MockConnectionFactory implements QueueConnectionFactory, TopicConne
         connections.add(connection);
         return connection;
     }
-    
+
+    @Override
+    public JMSContext createContext() {
+        // TODO: jakarta
+
+        return null;
+    }
+
+    @Override
+    public JMSContext createContext(final String s, final String s1) {
+        // TODO: jakarta
+
+        return null;
+    }
+
+    @Override
+    public JMSContext createContext(final String s, final String s1, final int i) {
+        // TODO: jakarta
+
+        return null;
+    }
+
+    @Override
+    public JMSContext createContext(final int i) {
+        // TODO: jakarta
+
+        return null;
+    }
+
     public QueueConnection createQueueConnection() throws JMSException
     {
         return createQueueConnection(null, null);

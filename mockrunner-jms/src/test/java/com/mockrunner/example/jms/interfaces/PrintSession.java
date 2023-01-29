@@ -7,7 +7,7 @@ package com.mockrunner.example.jms.interfaces;
  * Remote interface for PrintSession.
  */
 public interface PrintSession
-   extends javax.ejb.EJBObject
+   extends jakarta.ejb.EJBObject
 {
 
    void sendMessage(java.lang.String customerId)

@@ -1,8 +1,8 @@
 package com.mockrunner.mock.jms;
 
-import javax.jms.JMSException;
-import javax.jms.ServerSession;
-import javax.jms.ServerSessionPool;
+import jakarta.jms.JMSException;
+import jakarta.jms.ServerSession;
+import jakarta.jms.ServerSessionPool;
 
 /**
  * Mock implementation of JMS <code>ServerSessionPool</code>.

@@ -28,7 +28,7 @@
 			<artifactId>commons-logging</artifactId>
 			<optional>true</optional>
 		</dependency>
-		
+
 		<!-- needed for XML Util -->
 		<dependency>
 			<groupId>jdom</groupId>

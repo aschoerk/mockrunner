@@ -8,9 +8,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javax.jms.JMSException;
-import javax.jms.TopicPublisher;
-import javax.jms.TopicSubscriber;
+import jakarta.jms.JMSException;
+import jakarta.jms.TopicPublisher;
+import jakarta.jms.TopicSubscriber;
 
 import com.mockrunner.mock.jms.MockConnection;
 import com.mockrunner.mock.jms.MockSession;

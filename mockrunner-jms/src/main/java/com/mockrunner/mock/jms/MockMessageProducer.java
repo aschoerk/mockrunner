@@ -2,14 +2,15 @@ package com.mockrunner.mock.jms;
 
 import java.io.Serializable;
 
-import javax.jms.BytesMessage;
-import javax.jms.DeliveryMode;
-import javax.jms.Destination;
-import javax.jms.InvalidDestinationException;
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.MessageProducer;
-import javax.jms.StreamMessage;
+import jakarta.jms.BytesMessage;
+import jakarta.jms.CompletionListener;
+import jakarta.jms.DeliveryMode;
+import jakarta.jms.Destination;
+import jakarta.jms.InvalidDestinationException;
+import jakarta.jms.JMSException;
+import jakarta.jms.Message;
+import jakarta.jms.MessageProducer;
+import jakarta.jms.StreamMessage;
 
 /**
  * Mock implementation of JMS <code>MessageProducer</code>.
@@ -95,7 +96,31 @@ public class MockMessageProducer implements MessageProducer, Serializable
             throw new InvalidDestinationException("destination must be an instance of MockQueue or MockTopic");
         }
     }
-    
+
+    @Override
+    public void send(final Message message, final CompletionListener completionListener) throws JMSException {
+        // TODO: jakarta
+
+    }
+
+    @Override
+    public void send(final Message message, final int i, final int i1, final long l, final CompletionListener completionListener) throws JMSException {
+        // TODO: jakarta
+
+    }
+
+    @Override
+    public void send(final Destination destination, final Message message, final CompletionListener completionListener) throws JMSException {
+        // TODO: jakarta
+
+    }
+
+    @Override
+    public void send(final Destination destination, final Message message, final int i, final int i1, final long l, final CompletionListener completionListener) throws JMSException {
+        // TODO: jakarta
+
+    }
+
     public Destination getDestination() throws JMSException
     {
         connection.throwJMSException();
@@ -166,6 +191,18 @@ public class MockMessageProducer implements MessageProducer, Serializable
     {
         connection.throwJMSException();
         return timeToLive;
+    }
+
+    @Override
+    public void setDeliveryDelay(final long l) throws JMSException {
+        // TODO: jakarta
+
+    }
+
+    @Override
+    public long getDeliveryDelay() throws JMSException {
+        // TODO: jakarta
+        return 0;
     }
 
     private void setJMSMessageHeaders(Message message, Destination destination, int deliveryMode, int priority, long timeToLive) throws JMSException

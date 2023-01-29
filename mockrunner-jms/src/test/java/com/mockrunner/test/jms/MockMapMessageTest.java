@@ -9,8 +9,8 @@ import static org.junit.Assert.fail;
 
 import java.util.Arrays;
 
-import javax.jms.MessageFormatException;
-import javax.jms.MessageNotWriteableException;
+import jakarta.jms.MessageFormatException;
+import jakarta.jms.MessageNotWriteableException;
 
 import org.junit.Test;
 

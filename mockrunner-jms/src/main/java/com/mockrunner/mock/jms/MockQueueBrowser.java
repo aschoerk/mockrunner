@@ -6,11 +6,11 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Vector;
 
-import javax.jms.InvalidSelectorException;
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.Queue;
-import javax.jms.QueueBrowser;
+import jakarta.jms.InvalidSelectorException;
+import jakarta.jms.JMSException;
+import jakarta.jms.Message;
+import jakarta.jms.Queue;
+import jakarta.jms.QueueBrowser;
 
 import org.activemq.filter.mockrunner.Filter;
 import org.activemq.selector.mockrunner.SelectorParser;

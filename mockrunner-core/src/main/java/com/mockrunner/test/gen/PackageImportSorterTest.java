@@ -26,13 +26,13 @@ public class PackageImportSorterTest extends TestCase
         imports.add("java.util.List");
         imports.add("com.mockrunner.struts.ActionTestCaseAdapter");
         imports.add("java.util.Enumeration");
-        imports.add("javax.servlet.jsp.JspException");
+        imports.add("jakarta.servlet.jsp.JspException");
         imports.add("org.apache.commons.beanutils.BeanUtils");
-        imports.add("javax.sql.DataSource");
+        imports.add("jakarta.sql.DataSource");
         imports.add("java.io.BufferedWriter");
         imports.add("org.apache.struts.action.DynaActionFormClass");
         imports.add("org.mypack.TestClass");
-        imports.add("javax.servlet.ServletRequest");
+        imports.add("jakarta.servlet.ServletRequest");
         imports.add("javax.swing.Box");
         imports.add("java.net.URL");
         imports.add("com.mockrunner.test.gen.PackageImportSorterTest");
@@ -62,8 +62,8 @@ public class PackageImportSorterTest extends TestCase
         assertEquals("java.util.Enumeration", block1.next());
         assertEquals("java.util.List", block1.next());
         Iterator<String> block2 = (result.get(1)).iterator();
-        assertEquals("javax.servlet.ServletRequest", block2.next());
-        assertEquals("javax.servlet.jsp.JspException", block2.next());
+        assertEquals("jakarta.servlet.ServletRequest", block2.next());
+        assertEquals("jakarta.servlet.jsp.JspException", block2.next());
         assertEquals("javax.sql.DataSource", block2.next());
         assertEquals("javax.swing.Box", block2.next());
         Iterator<String> block3 = (result.get(2)).iterator();
@@ -103,8 +103,8 @@ public class PackageImportSorterTest extends TestCase
         assertEquals("java.util.Enumeration", block1.next());
         assertEquals("java.util.List", block1.next());
         Iterator<String> block2 = (result.get(1)).iterator();
-        assertEquals("javax.servlet.ServletRequest", block2.next());
-        assertEquals("javax.servlet.jsp.JspException", block2.next());
+        assertEquals("jakarta.servlet.ServletRequest", block2.next());
+        assertEquals("jakarta.servlet.jsp.JspException", block2.next());
         assertEquals("javax.sql.DataSource", block2.next());
         assertEquals("javax.swing.Box", block2.next());
         Iterator<String> block3 = (result.get(2)).iterator();

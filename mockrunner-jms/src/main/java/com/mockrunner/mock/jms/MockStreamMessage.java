@@ -5,12 +5,12 @@ import java.util.Collections;
 import java.util.Stack;
 import java.util.Vector;
 
-import javax.jms.JMSException;
-import javax.jms.MessageEOFException;
-import javax.jms.MessageFormatException;
-import javax.jms.MessageNotReadableException;
-import javax.jms.MessageNotWriteableException;
-import javax.jms.StreamMessage;
+import jakarta.jms.JMSException;
+import jakarta.jms.MessageEOFException;
+import jakarta.jms.MessageFormatException;
+import jakarta.jms.MessageNotReadableException;
+import jakarta.jms.MessageNotWriteableException;
+import jakarta.jms.StreamMessage;
 
 import com.mockrunner.util.common.ArrayUtil;
 

@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.Enumeration;
 import java.util.Vector;
 
-import javax.jms.ConnectionMetaData;
-import javax.jms.JMSException;
+import jakarta.jms.ConnectionMetaData;
+import jakarta.jms.JMSException;
 
 /**
  * Mock implementation of JMS <code>ConnectionMetaData</code>.

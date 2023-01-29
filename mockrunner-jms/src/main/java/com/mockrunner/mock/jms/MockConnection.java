@@ -5,15 +5,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import javax.jms.Connection;
-import javax.jms.ConnectionConsumer;
-import javax.jms.ConnectionMetaData;
-import javax.jms.Destination;
-import javax.jms.ExceptionListener;
-import javax.jms.JMSException;
-import javax.jms.ServerSessionPool;
-import javax.jms.Session;
-import javax.jms.Topic;
+import jakarta.jms.Connection;
+import jakarta.jms.ConnectionConsumer;
+import jakarta.jms.ConnectionMetaData;
+import jakarta.jms.Destination;
+import jakarta.jms.ExceptionListener;
+import jakarta.jms.JMSException;
+import jakarta.jms.ServerSessionPool;
+import jakarta.jms.Session;
+import jakarta.jms.Topic;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -192,18 +192,42 @@ public class MockConnection implements Connection, Serializable
         sessions().add(session);
         return session;
     }
-    
+
+    @Override
+    public Session createSession(final int i) throws JMSException {
+        // TODO: jakarta
+        return null;
+    }
+
+    @Override
+    public Session createSession() throws JMSException {
+        // TODO: jakarta
+        return null;
+    }
+
     public ConnectionConsumer createConnectionConsumer(Destination destination, String messageSelector, ServerSessionPool sessionPool, int maxMessages) throws JMSException
     {
         throwJMSException();
         return new MockConnectionConsumer(this, sessionPool);
     }
 
+    @Override
+    public ConnectionConsumer createSharedConnectionConsumer(final Topic topic, final String s, final String s1, final ServerSessionPool serverSessionPool, final int i) throws JMSException {
+        // TODO: jakarta
+        return null;
+    }
+
     public ConnectionConsumer createDurableConnectionConsumer(Topic topic, String subscriptionName, String messageSelector, ServerSessionPool sessionPool, int maxMessages) throws JMSException
     {
         return createConnectionConsumer(topic, messageSelector, sessionPool, maxMessages);
     }
-    
+
+    @Override
+    public ConnectionConsumer createSharedDurableConnectionConsumer(final Topic topic, final String s, final String s1, final ServerSessionPool serverSessionPool, final int i) throws JMSException {
+        // TODO: jakarta
+        return null;
+    }
+
     public ConnectionMetaData getMetaData() throws JMSException
     {
         throwJMSException();

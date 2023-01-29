@@ -8,7 +8,7 @@ import static org.junit.Assert.fail;
 
 import java.io.Serializable;
 
-import javax.jms.MessageNotWriteableException;
+import jakarta.jms.MessageNotWriteableException;
 
 import org.junit.Test;
 

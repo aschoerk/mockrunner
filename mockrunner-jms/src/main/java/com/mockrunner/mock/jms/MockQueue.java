@@ -3,10 +3,10 @@ package com.mockrunner.mock.jms;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.MessageListener;
-import javax.jms.Queue;
+import jakarta.jms.JMSException;
+import jakarta.jms.Message;
+import jakarta.jms.MessageListener;
+import jakarta.jms.Queue;
 
 /**
  * Mock implementation of JMS <code>Queue</code>.

@@ -8,14 +8,14 @@ import static org.junit.Assert.fail;
 
 import java.util.Set;
 
-import javax.jms.DeliveryMode;
-import javax.jms.Destination;
-import javax.jms.InvalidDestinationException;
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.MessageListener;
-import javax.jms.MessageNotWriteableException;
-import javax.jms.Session;
+import jakarta.jms.DeliveryMode;
+import jakarta.jms.Destination;
+import jakarta.jms.InvalidDestinationException;
+import jakarta.jms.JMSException;
+import jakarta.jms.Message;
+import jakarta.jms.MessageListener;
+import jakarta.jms.MessageNotWriteableException;
+import jakarta.jms.Session;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -241,7 +241,7 @@ public class MockMessageProducerTest
     {
         try
         {
-            producer.send(null, null);
+            producer.send((Destination)null, null);
             fail();
         }
         catch(InvalidDestinationException exc)

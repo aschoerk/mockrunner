@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import javax.jms.JMSException;
-import javax.jms.MessageProducer;
+import jakarta.jms.JMSException;
+import jakarta.jms.MessageProducer;
 
 import com.mockrunner.mock.jms.MockConnection;
 import com.mockrunner.mock.jms.MockMessageProducer;

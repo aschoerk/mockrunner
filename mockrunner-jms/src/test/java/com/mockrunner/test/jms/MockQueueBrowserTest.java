@@ -7,12 +7,12 @@ import static org.junit.Assert.fail;
 
 import java.util.Enumeration;
 
-import javax.jms.JMSException;
-import javax.jms.ObjectMessage;
-import javax.jms.QueueBrowser;
-import javax.jms.QueueSender;
-import javax.jms.Session;
-import javax.jms.TextMessage;
+import jakarta.jms.JMSException;
+import jakarta.jms.ObjectMessage;
+import jakarta.jms.QueueBrowser;
+import jakarta.jms.QueueSender;
+import jakarta.jms.Session;
+import jakarta.jms.TextMessage;
 
 import org.junit.Before;
 import org.junit.Test;

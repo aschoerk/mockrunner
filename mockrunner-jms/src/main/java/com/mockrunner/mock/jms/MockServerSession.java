@@ -2,10 +2,10 @@ package com.mockrunner.mock.jms;
 
 import java.io.Serializable;
 
-import javax.jms.JMSException;
-import javax.jms.QueueSession;
-import javax.jms.ServerSession;
-import javax.jms.Session;
+import jakarta.jms.JMSException;
+import jakarta.jms.QueueSession;
+import jakarta.jms.ServerSession;
+import jakarta.jms.Session;
 
 /**
  * Mock implementation of JMS <code>ServerSession</code>.
