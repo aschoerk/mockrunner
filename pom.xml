@@ -53,14 +53,14 @@
     </contributors>
 
     <scm>
-        <connection>scm:git:https://github.com/mockrunner/mockrunner.git</connection>
-            <url>https://github.com/mockrunner/mockrunner</url>
-        <developerConnection>scm:git:https://github.com/mockrunner/mockrunner.git</developerConnection>
+        <connection>scm:git:https://github.com/aschoerk/mockrunner.git</connection>
+            <url>https://github.com/aschoerk/mockrunner</url>
+        <developerConnection>scm:git:https://github.com/aschoerk/mockrunner.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
-        <url>https://github.com/mockrunner/mockrunner/issues</url>
+        <url>https://github.com/aschoerk/mockrunner/issues</url>
         <system>Github Issues</system>
     </issueManagement>
 
@@ -480,24 +480,8 @@
                     <nexusUrl>https://oss.sonatype.org</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
-	</plugin>
-         <plugin>
-                        <groupId>org.openrewrite.maven</groupId>
-                        <artifactId>rewrite-maven-plugin</artifactId>
-                        <version>4.39.0</version>
-                        <configuration>
-                            <activeRecipes>
-                                <recipe>org.openrewrite.java.migrate.jakarta.JavaxMigrationToJakarta</recipe>
-                            </activeRecipes>
-                        </configuration>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.openrewrite.recipe</groupId>
-                                <artifactId>rewrite-migrate-java</artifactId>
-                                <version>1.16.0</version>
-                            </dependency>
-                        </dependencies>
-                    </plugin>
+	        </plugin>
+
         </plugins>
     </build>
 
