@@ -5,7 +5,7 @@
 
     <groupId>net.oneandone.mockrunner</groupId>
     <artifactId>mockrunner</artifactId>
-    <version>3.0.1</version>
+    <version>3.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>MockRunner</name>
     <url>http://mockrunner.github.io</url>
@@ -56,7 +56,7 @@
         <connection>scm:git:https://github.com/aschoerk/mockrunner.git</connection>
             <url>https://github.com/aschoerk/mockrunner</url>
         <developerConnection>scm:git:https://github.com/aschoerk/mockrunner.git</developerConnection>
-        <tag>mockrunner-3.0.1</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
