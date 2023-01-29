@@ -35,6 +35,8 @@ public class MockMessage implements Message, Cloneable, Serializable
     private Map properties;
     private boolean isInWriteMode;
     private boolean isInWriteModeProperties;
+
+    private Long jms2DeliveryTime;
     
     public MockMessage()
     {
@@ -179,14 +181,12 @@ public class MockMessage implements Message, Cloneable, Serializable
 
     @Override
     public long getJMSDeliveryTime() throws JMSException {
-        // TODO: jakarta
-        return 0;
+        return jms2DeliveryTime;
     }
 
     @Override
-    public void setJMSDeliveryTime(final long l) throws JMSException {
-        // TODO: jakarta
-
+    public void setJMSDeliveryTime(long deliveryTime) throws JMSException {
+        this.jms2DeliveryTime = deliveryTime;
     }
 
     public int getJMSPriority() throws JMSException
@@ -423,15 +423,13 @@ public class MockMessage implements Message, Cloneable, Serializable
     }
 
     @Override
-    public <T> T getBody(final Class<T> aClass) throws JMSException {
-        // TODO: jakarta
-        return null;
+    public <T> T getBody(Class<T> c) throws JMSException {
+        return com.mockrunner.mock.jms.jms2_compat.Jms2MessageUtil.getBody(this, c);
     }
 
     @Override
-    public boolean isBodyAssignableTo(final Class aClass) throws JMSException {
-        // TODO: jakarta
-        return false;
+    public boolean isBodyAssignableTo(Class c) throws JMSException {
+        return com.mockrunner.mock.jms.jms2_compat.Jms2MessageUtil.isBodyAssignableTo(this, c);
     }
 
     public void setReadOnly(boolean isReadOnly)

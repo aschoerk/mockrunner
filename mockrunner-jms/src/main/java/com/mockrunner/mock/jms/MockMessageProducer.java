@@ -8,6 +8,7 @@ import jakarta.jms.DeliveryMode;
 import jakarta.jms.Destination;
 import jakarta.jms.InvalidDestinationException;
 import jakarta.jms.JMSException;
+import jakarta.jms.JMSProducer;
 import jakarta.jms.Message;
 import jakarta.jms.MessageProducer;
 import jakarta.jms.StreamMessage;
@@ -26,7 +27,8 @@ public class MockMessageProducer implements MessageProducer, Serializable
     private int deliveryMode;
     private int priority;
     private long timeToLive;
-    
+    private Long deliveryDelay;
+
     public MockMessageProducer(MockConnection connection, MockSession session, MockDestination destination)
     {
         this.connection = connection;
@@ -99,25 +101,43 @@ public class MockMessageProducer implements MessageProducer, Serializable
 
     @Override
     public void send(final Message message, final CompletionListener completionListener) throws JMSException {
-        // TODO: jakarta
-
+        try {
+            send(destination, message);
+            completionListener.onCompletion(message);
+        } catch (Exception e) {
+            completionListener.onException(message, e);
+        }
     }
 
     @Override
-    public void send(final Message message, final int i, final int i1, final long l, final CompletionListener completionListener) throws JMSException {
-        // TODO: jakarta
-
+    public void send(Message message, int deliveryMode, int priority, long timeToLive, final CompletionListener completionListener) throws JMSException {
+        try {
+            send(destination, message, deliveryMode, priority, timeToLive);
+            completionListener.onCompletion(message);
+        } catch (Exception e) {
+            completionListener.onException(message, e);
+        }
     }
 
     @Override
-    public void send(final Destination destination, final Message message, final CompletionListener completionListener) throws JMSException {
-        // TODO: jakarta
-
+    public void send(Destination destination, Message message, CompletionListener completionListener) throws JMSException {
+        try {
+            send(destination, message);
+            completionListener.onCompletion(message);
+        } catch (Exception e) {
+            completionListener.onException(message, e);
+        }
     }
 
     @Override
-    public void send(final Destination destination, final Message message, final int i, final int i1, final long l, final CompletionListener completionListener) throws JMSException {
-        // TODO: jakarta
+    public void send(Destination destination, Message message, int deliveryMode, int priority, long timeToLive, CompletionListener completionListener)
+            throws JMSException {
+        try {
+            send(destination, message, deliveryMode, priority, timeToLive);
+            completionListener.onCompletion(message);
+        } catch (Exception e) {
+            completionListener.onException(message, e);
+        }
 
     }
 
@@ -194,15 +214,13 @@ public class MockMessageProducer implements MessageProducer, Serializable
     }
 
     @Override
-    public void setDeliveryDelay(final long l) throws JMSException {
-        // TODO: jakarta
-
+    public void setDeliveryDelay(long deliveryDelay) {
+        this.deliveryDelay = deliveryDelay;
     }
 
     @Override
-    public long getDeliveryDelay() throws JMSException {
-        // TODO: jakarta
-        return 0;
+    public long getDeliveryDelay() {
+        return deliveryDelay != null ? deliveryDelay : 0L;
     }
 
     private void setJMSMessageHeaders(Message message, Destination destination, int deliveryMode, int priority, long timeToLive) throws JMSException

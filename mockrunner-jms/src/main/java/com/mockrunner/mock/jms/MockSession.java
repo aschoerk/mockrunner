@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -37,6 +36,7 @@ import com.mockrunner.jms.MessageManager;
 import com.mockrunner.jms.QueueTransmissionManager;
 import com.mockrunner.jms.TopicTransmissionManager;
 import com.mockrunner.jms.TransmissionManagerWrapper;
+import com.mockrunner.mock.jms.jms2_compat.TopicSubscriberAdaptor;
 
 /**
  * Mock implementation of JMS <code>Session</code>.
@@ -497,14 +497,12 @@ public class MockSession implements Session, Serializable
 
     @Override
     public MessageConsumer createSharedConsumer(final Topic topic, final String s) throws JMSException {
-        // TODO: jakarta
-        return null;
+        return new TopicSubscriberAdaptor(this.createDurableSubscriber(topic, s));
     }
 
     @Override
     public MessageConsumer createSharedConsumer(final Topic topic, final String s, final String s1) throws JMSException {
-        // TODO: jakarta
-        return null;
+        return new TopicSubscriberAdaptor(this.createDurableSubscriber(topic, s,s1, false));
     }
 
     public MessageProducer createProducer(Destination destination) throws JMSException
@@ -566,27 +564,22 @@ public class MockSession implements Session, Serializable
 
     @Override
     public MessageConsumer createDurableConsumer(final Topic topic, final String s) throws JMSException {
-        // TODO: jakarta
-
-        return null;
+        return new TopicSubscriberAdaptor(createDurableSubscriber(topic, s));
     }
 
     @Override
     public MessageConsumer createDurableConsumer(final Topic topic, final String s, final String s1, final boolean b) throws JMSException {
-        // TODO: jakarta
-        return null;
+        return new TopicSubscriberAdaptor(createDurableSubscriber(topic, s,s1, b));
     }
 
     @Override
     public MessageConsumer createSharedDurableConsumer(final Topic topic, final String s) throws JMSException {
-        // TODO: jakarta
-        return null;
+        return new TopicSubscriberAdaptor(createDurableSubscriber(topic, s));
     }
 
     @Override
     public MessageConsumer createSharedDurableConsumer(final Topic topic, final String s, final String s1) throws JMSException {
-        // TODO: jakarta
-        return null;
+        return new TopicSubscriberAdaptor(createDurableSubscriber(topic, s,s1,false));
     }
 
     protected MockConnection getConnection()

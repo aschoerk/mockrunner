@@ -194,15 +194,13 @@ public class MockConnection implements Connection, Serializable
     }
 
     @Override
-    public Session createSession(final int i) throws JMSException {
-        // TODO: jakarta
-        return null;
+    public Session createSession(int sessionMode) throws JMSException {
+        return createSession(sessionMode == Session.SESSION_TRANSACTED, sessionMode);
     }
 
     @Override
     public Session createSession() throws JMSException {
-        // TODO: jakarta
-        return null;
+        return createSession(false, Session.AUTO_ACKNOWLEDGE);
     }
 
     public ConnectionConsumer createConnectionConsumer(Destination destination, String messageSelector, ServerSessionPool sessionPool, int maxMessages) throws JMSException
@@ -212,9 +210,9 @@ public class MockConnection implements Connection, Serializable
     }
 
     @Override
-    public ConnectionConsumer createSharedConnectionConsumer(final Topic topic, final String s, final String s1, final ServerSessionPool serverSessionPool, final int i) throws JMSException {
-        // TODO: jakarta
-        return null;
+    public ConnectionConsumer createSharedConnectionConsumer(Topic topic, String subscriptionName,
+                                                             String messageSelector, ServerSessionPool sessionPool, int maxMessages) throws JMSException {
+        return createDurableConnectionConsumer(topic, subscriptionName, messageSelector, sessionPool,maxMessages);
     }
 
     public ConnectionConsumer createDurableConnectionConsumer(Topic topic, String subscriptionName, String messageSelector, ServerSessionPool sessionPool, int maxMessages) throws JMSException
@@ -223,9 +221,9 @@ public class MockConnection implements Connection, Serializable
     }
 
     @Override
-    public ConnectionConsumer createSharedDurableConnectionConsumer(final Topic topic, final String s, final String s1, final ServerSessionPool serverSessionPool, final int i) throws JMSException {
-        // TODO: jakarta
-        return null;
+    public ConnectionConsumer createSharedDurableConnectionConsumer(Topic topic, String subscriptionName, String messageSelector,
+                                                                    ServerSessionPool sessionPool, int maxMessages) throws JMSException {
+        return createDurableConnectionConsumer(topic, subscriptionName, messageSelector, sessionPool, maxMessages);
     }
 
     public ConnectionMetaData getMetaData() throws JMSException

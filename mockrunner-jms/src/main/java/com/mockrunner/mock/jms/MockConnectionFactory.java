@@ -2,12 +2,16 @@ package com.mockrunner.mock.jms;
 
 import com.mockrunner.jms.ConfigurationManager;
 import com.mockrunner.jms.DestinationManager;
+import com.mockrunner.mock.jms.jms2_compat.Callback;
+import com.mockrunner.mock.jms.jms2_compat.Jms2Context;
+import com.mockrunner.mock.jms.jms2_compat.Jms2Util;
 
 import jakarta.jms.Connection;
 import jakarta.jms.JMSContext;
 import jakarta.jms.JMSException;
 import jakarta.jms.QueueConnection;
 import jakarta.jms.QueueConnectionFactory;
+import jakarta.jms.Session;
 import jakarta.jms.TopicConnection;
 import jakarta.jms.TopicConnectionFactory;
 import java.io.Serializable;
@@ -59,30 +63,57 @@ public class MockConnectionFactory implements QueueConnectionFactory, TopicConne
 
     @Override
     public JMSContext createContext() {
-        // TODO: jakarta
+        return Jms2Util.execute(new Callback<JMSContext>() {
 
-        return null;
+            @Override
+            public JMSContext execute() throws JMSException {
+                Connection connection = createConnection();
+                Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+                return new Jms2Context(connection, session);
+            }
+        });
     }
 
     @Override
-    public JMSContext createContext(final String s, final String s1) {
-        // TODO: jakarta
+    public JMSContext createContext(final String arg0, final String arg1) {
+        return Jms2Util.execute(new Callback<Jms2Context>() {
 
-        return null;
+            @Override
+            public Jms2Context execute() throws JMSException {
+                Connection connection = createConnection(arg0, arg1);
+                Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+                return new Jms2Context(connection, session);
+            }
+        });
     }
 
     @Override
-    public JMSContext createContext(final String s, final String s1, final int i) {
-        // TODO: jakarta
+    public JMSContext createContext(final String arg0, final String arg1, final int arg2) {
+        return Jms2Util.execute(new Callback<Jms2Context>() {
 
-        return null;
+            @Override
+            public Jms2Context execute() throws JMSException {
+                Connection connection = createConnection(arg0, arg1);
+                Session session = connection.createSession(arg2 == Session.SESSION_TRANSACTED, arg2);
+                return new Jms2Context(connection, session);
+            }
+        });
+
     }
 
     @Override
-    public JMSContext createContext(final int i) {
-        // TODO: jakarta
+    public JMSContext createContext(final int sessionMode) {
 
-        return null;
+        return Jms2Util.execute(new Callback<Jms2Context>() {
+
+            @Override
+            public Jms2Context execute() throws JMSException {
+                Connection connection = createConnection();
+                Session session = connection.createSession(Session.SESSION_TRANSACTED == sessionMode, sessionMode);
+                return new Jms2Context(connection, session);
+            }
+        });
+
     }
 
     public QueueConnection createQueueConnection() throws JMSException
